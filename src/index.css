@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: #6B4423;
+    background: #F5F1E6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .rasta-stripe {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .rasta-stripe span {
+    height: 2px;
+    width: 60px;
+    display: block;
+  }
+  .rasta-stripe span:nth-child(1) { background: #4A5D23; }
+  .rasta-stripe span:nth-child(2) { background: #C9A227; }
+  .rasta-stripe span:nth-child(3) { background: #9B2335; }
+
+  .shimmer-hover {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(201, 162, 39, 0.15) 45%, rgba(245, 241, 230, 0.3) 50%, rgba(201, 162, 39, 0.15) 55%, transparent 60%);
+    transform: translateX(-100%);
+    transition: none;
+    pointer-events: none;
+  }
+  .shimmer-hover:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.8s ease;
+  }
+
+  .text-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 10vw, 7rem);
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .text-section-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .text-sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  .text-body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    line-height: 1.7;
+  }
+
+  .text-body-large {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+    line-height: 1.7;
+  }
+
+  .text-label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: clamp(0.65rem, 0.8vw, 0.8rem);
+    letter-spacing: 0.18em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    padding-top: clamp(80px, 12vh, 140px);
+    padding-bottom: clamp(60px, 8vh, 100px);
+  }
+}
+
+/* Performance: compositor hints for animated elements */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable infinite marquee */
+  .marquee-item {
+    animation: none !important;
+  }
+
+  /* Disable WebGL hero background for reduced-motion users */
+  #hero canvas {
+    display: none !important;
+  }
+}
