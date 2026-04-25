@@ -89,13 +89,13 @@ export default function Hero() {
           paddingTop: '0',
         }}
       >
-        <div style={{ textAlign: 'center', maxWidth: 800, padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', maxWidth: 800, padding: '40px 36px', borderRadius: 16, background: 'rgba(21,27,14,0.25)', backdropFilter: 'blur(4px)' }}>
           <h1
             ref={titleRef}
             className="text-display"
             style={{
               color: '#F5F1E6',
-              textShadow: '0 2px 30px rgba(74,93,35,0.5)',
+              textShadow: '0 4px 30px rgba(0,0,0,0.7), 0 0 80px rgba(74,93,35,0.4)',
               opacity: 0,
               willChange: 'transform, opacity',
             }}
@@ -106,12 +106,13 @@ export default function Hero() {
             ref={subtitleRef}
             className="text-sub-heading"
             style={{
-              color: '#A3B899',
+              color: '#C9A227',
               marginTop: 16,
               maxWidth: 600,
               margin: '16px auto 0',
               opacity: 0,
               willChange: 'transform, opacity',
+              textShadow: '0 3px 20px rgba(0,0,0,0.6)',
             }}
           >
             {t.hero.subtitle}
