@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '../lib/i18n'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const TONICS = [
   { name: 'Damiana Roots', image: '/images/tonic-damiana.jpg' },
@@ -69,28 +65,8 @@ export default function TonicsCarousel() {
 
   useEffect(() => {
     if (isMobile) return
-    const section = sectionRef.current
-    if (!section) return
-
-    // Initialize positions
+    // Initialize carousel position
     updateCarousel(0)
-
-    const st = ScrollTrigger.create({
-      trigger: section,
-      start: 'top top',
-      end: '+=200%',
-      pin: true,
-      scrub: 1,
-      onUpdate: (self) => {
-        if (isManualRef.current) return // skip scroll updates if user clicked arrows
-        const progress = self.progress
-        const newIndex = Math.round(progress * (TONICS.length - 1))
-        setActiveIndex((prev) => (prev !== newIndex ? newIndex : prev))
-        updateCarousel(newIndex)
-      },
-    })
-
-    return () => { st.kill() }
   }, [isMobile, updateCarousel])
 
   const handleImageLoad = (i: number) => {
