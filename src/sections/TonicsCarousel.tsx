@@ -102,74 +102,110 @@ export default function TonicsCarousel() {
     return (
       <section
         id="tonics"
-        style={{ background: '#4A5D23', padding: '80px 0' }}
+        style={{
+          position: 'relative',
+          padding: '80px 0',
+          overflow: 'hidden',
+        }}
       >
-        <h2
-          className="text-section-heading"
-          style={{ color: '#F5F1E6', textAlign: 'center', marginBottom: 40 }}
-        >
-          Our Tonics
-        </h2>
+        {/* Jungle background */}
         <div
           style={{
-            display: 'flex',
-            gap: 16,
-            overflowX: 'auto',
-            scrollSnapType: 'x mandatory',
-            padding: '0 24px',
-            scrollbarWidth: 'none',
+            position: 'absolute',
+            inset: 0,
+            zIndex: 0,
           }}
         >
-          {TONICS.map((tonic, i) => (
-            <div
-              key={i}
-              onClick={() => setActiveIndex(i)}
+          <img
+            src="/images/hero-bg.jpg"
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+              filter: 'blur(2px) brightness(0.6)',
+              transform: 'scale(1.05)',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'rgba(21, 27, 14, 0.55)',
+            }}
+          />
+        </div>
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <h2
+            className="text-section-heading"
+            style={{ color: '#F5F1E6', textAlign: 'center', marginBottom: 40 }}
+          >
+            {t.tonics.label}
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              gap: 16,
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              padding: '0 24px',
+              scrollbarWidth: 'none',
+            }}
+          >
+            {TONICS.map((tonic, i) => (
+              <div
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                style={{
+                  scrollSnapAlign: 'center',
+                  flex: '0 0 70vw',
+                  textAlign: 'center',
+                }}
+              >
+                <img
+                  src={tonic.image}
+                  alt={tonic.name}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '3/4',
+                    objectFit: 'cover',
+                    borderRadius: 8,
+                    boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
+                  }}
+                />
+                <p className="text-sub-heading" style={{ color: '#F5F1E6', marginTop: 12, fontSize: '1.2rem', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                  {tonic.name}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 24 }}>
+            <button
+              onClick={() => setActiveIndex((prev) => (prev - 1 + TONICS.length) % TONICS.length)}
               style={{
-                scrollSnapAlign: 'center',
-                flex: '0 0 70vw',
-                textAlign: 'center',
+                width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
+                background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', backdropFilter: 'blur(4px)',
               }}
             >
-              <img
-                src={tonic.image}
-                alt={tonic.name}
-                style={{
-                  width: '100%',
-                  aspectRatio: '3/4',
-                  objectFit: 'cover',
-                  borderRadius: 8,
-                }}
-              />
-              <p className="text-sub-heading" style={{ color: '#F5F1E6', marginTop: 12, fontSize: '1.2rem' }}>
-                {tonic.name}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 24 }}>
-          <button
-            onClick={() => setActiveIndex((prev) => (prev - 1 + TONICS.length) % TONICS.length)}
-            style={{
-              width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
-              background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', backdropFilter: 'blur(4px)',
-            }}
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <span className="text-label" style={{ color: '#A3B899' }}>
-            {t.tonics.count(activeIndex + 1, TONICS.length)}
-          </span>
-          <button
-            onClick={() => setActiveIndex((prev) => (prev + 1) % TONICS.length)}
-            style={{
-              width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
-              background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer', backdropFilter: 'blur(4px)',
-            }}
-          >
-            <ChevronRight size={20} />
-          </button>
+              <ChevronLeft size={20} />
+            </button>
+            <span className="text-label" style={{ color: '#A3B899' }}>
+              {t.tonics.count(activeIndex + 1, TONICS.length)}
+            </span>
+            <button
+              onClick={() => setActiveIndex((prev) => (prev + 1) % TONICS.length)}
+              style={{
+                width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
+                background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', backdropFilter: 'blur(4px)',
+              }}
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
       </section>
     )
@@ -180,13 +216,41 @@ export default function TonicsCarousel() {
       id="tonics"
       ref={sectionRef}
       style={{
-        background: '#4A5D23',
         height: '100vh',
         position: 'relative',
         overflow: 'hidden',
         perspective: '1000px',
       }}
     >
+      {/* Jungle background */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+        }}
+      >
+        <img
+          src="/images/hero-bg.jpg"
+          alt=""
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            filter: 'blur(2px) brightness(0.55)',
+            transform: 'scale(1.05)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(21,27,14,0.5), rgba(21,27,14,0.65))',
+          }}
+        />
+      </div>
+
       <h2
         className="text-section-heading"
         style={{
@@ -195,6 +259,7 @@ export default function TonicsCarousel() {
           top: 48,
           left: 'clamp(24px, 5vw, 80px)',
           zIndex: 10,
+          textShadow: '0 2px 20px rgba(0,0,0,0.5)',
         }}
       >
         {t.tonics.label}
@@ -277,6 +342,7 @@ export default function TonicsCarousel() {
           alignItems: 'center',
           justifyContent: 'center',
           transformStyle: 'preserve-3d',
+          zIndex: 5,
         }}
       >
         <div
@@ -307,7 +373,7 @@ export default function TonicsCarousel() {
                   zIndex: i === 0 ? 10 : 5,
                   borderRadius: 8,
                   overflow: 'hidden',
-                  boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+                  boxShadow: '0 25px 70px rgba(0,0,0,0.6)',
                   background: '#1a1a1a',
                 }}
               >
@@ -333,7 +399,7 @@ export default function TonicsCarousel() {
                     left: 0,
                     right: 0,
                     padding: '20px 16px',
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.75), transparent)',
                     textAlign: 'center',
                   }}
                 >
@@ -343,6 +409,7 @@ export default function TonicsCarousel() {
                       fontWeight: 600,
                       fontSize: '1.1rem',
                       color: '#F5F1E6',
+                      textShadow: '0 1px 4px rgba(0,0,0,0.5)',
                     }}
                   >
                     {tonic.name}

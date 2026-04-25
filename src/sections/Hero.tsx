@@ -46,38 +46,8 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Photo background — soft blur to hide low resolution */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 1,
-        }}
-      >
-        <img
-          src="/images/hero-bg.jpg"
-          alt=""
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            filter: 'blur(3px) brightness(0.75)',
-            transform: 'scale(1.05)',
-          }}
-        />
-        {/* Warm overlay to blend jungle photo with shader */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, rgba(74, 93, 35, 0.3), rgba(26, 60, 52, 0.5))',
-          }}
-        />
-      </div>
-
-      {/* WebGL Shader Background — semi-transparent so jungle photo shows through */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 2, opacity: 0.55 }}>
+      {/* WebGL Shader Background */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <GoldenCanopy />
       </div>
 
@@ -86,7 +56,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          zIndex: 3,
+          zIndex: 2,
           background: 'radial-gradient(ellipse at center, transparent 30%, rgba(26,60,52,0.5) 100%)',
           pointerEvents: 'none',
         }}
@@ -101,7 +71,7 @@ export default function Hero() {
           right: 0,
           height: '25%',
           background: 'linear-gradient(to bottom, transparent, #4A5D23)',
-          zIndex: 3,
+          zIndex: 2,
           pointerEvents: 'none',
         }}
       />
@@ -110,7 +80,7 @@ export default function Hero() {
       <div
         style={{
           position: 'relative',
-          zIndex: 4,
+          zIndex: 3,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
