@@ -60,7 +60,6 @@ export default function FromOurRange() {
               key={i}
               className="product-card group"
               style={{
-                opacity: 0,
                 cursor: 'pointer',
               }}
             >

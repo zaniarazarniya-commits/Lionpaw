@@ -70,7 +70,7 @@ export default function Ingredients() {
     >
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(24px, 5vw, 80px)' }}>
         {/* Header */}
-        <div ref={headingRef} style={{ textAlign: 'center', marginBottom: 64, opacity: 0 }}>
+        <div ref={headingRef} style={{ textAlign: 'center', marginBottom: 64 }}>
           <span
             className="text-label"
             style={{
@@ -132,7 +132,6 @@ export default function Ingredients() {
               style={{
                 padding: '32px 24px',
                 borderTop: '1px solid rgba(107, 68, 35, 0.15)',
-                opacity: 0,
               }}
             >
               <span
@@ -196,7 +195,6 @@ export default function Ingredients() {
             margin: '0 auto',
             borderRadius: 8,
             overflow: 'hidden',
-            opacity: 0,
           }}
         >
           <img

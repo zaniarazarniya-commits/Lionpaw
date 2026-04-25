@@ -63,7 +63,7 @@ export default function TheCraft() {
     >
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(24px, 5vw, 80px)' }}>
         {/* Header */}
-        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: 56, opacity: 0 }}>
+        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: 56 }}>
           <span
             className="text-label"
             style={{
@@ -155,7 +155,6 @@ export default function TheCraft() {
               style={{
                 position: 'relative',
                 padding: '0 16px',
-                opacity: 0,
               }}
             >
               {/* Large background number */}

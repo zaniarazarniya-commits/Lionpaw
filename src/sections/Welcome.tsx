@@ -98,12 +98,12 @@ export default function Welcome() {
         <h2
           ref={headingRef}
           className="text-section-heading"
-          style={{ color: '#6B4423', marginBottom: 32, opacity: 0, willChange: 'transform, opacity' }}
+          style={{ color: '#6B4423', marginBottom: 32, opacity: 0, willChange: 'transform, opacity', wordBreak: 'keep-all', overflowWrap: 'break-word', fontSize: 'clamp(1.8rem, 6vw, 5rem)' }}
         >
           {t.welcome.heading}
         </h2>
 
-        <div ref={bodyRef} style={{ opacity: 0 }}>
+        <div ref={bodyRef}>
           <p className="text-body" style={{ color: 'rgba(107, 68, 35, 0.8)', maxWidth: 640, margin: '0 auto 24px', willChange: 'transform, opacity' }}>
             {t.welcome.body}
           </p>

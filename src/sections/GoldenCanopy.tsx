@@ -259,7 +259,7 @@ export default function GoldenCanopy() {
 
     const w = container.offsetWidth || window.innerWidth
     const h = container.offsetHeight || window.innerHeight
-    const isMobile = navigator.maxTouchPoints > 0
+    const isMobile = window.innerWidth < 768 || navigator.maxTouchPoints > 0
 
     const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'high-performance' })
     renderer.setSize(w, h)
@@ -272,9 +272,9 @@ export default function GoldenCanopy() {
       fragmentShader: noiseFragmentShader,
       uniforms: {
         uTime: { value: 0 },
-        uRayIntensity: { value: 1.2 },
-        uCloudDensity: { value: 1.0 },
-        uLightPosition: { value: new THREE.Vector2(0.65, 0.55) },
+        uRayIntensity: { value: isMobile ? 0.6 : 1.2 },
+        uCloudDensity: { value: isMobile ? 0.75 : 1.0 },
+        uLightPosition: { value: isMobile ? new THREE.Vector2(0.85, 0.35) : new THREE.Vector2(0.65, 0.55) },
         resolution: { value: new THREE.Vector2(w, h) },
       },
     })
@@ -284,9 +284,9 @@ export default function GoldenCanopy() {
       fragmentShader: displayFragmentShader,
       uniforms: {
         uTime: { value: 0 },
-        uRayIntensity: { value: 1.2 },
-        uCloudDensity: { value: 1.0 },
-        uLightPosition: { value: new THREE.Vector2(0.65, 0.55) },
+        uRayIntensity: { value: isMobile ? 0.6 : 1.2 },
+        uCloudDensity: { value: isMobile ? 0.75 : 1.0 },
+        uLightPosition: { value: isMobile ? new THREE.Vector2(0.85, 0.35) : new THREE.Vector2(0.65, 0.55) },
         uColorGrading: { value: 1.0 },
         uNoiseTexture: { value: null },
         resolution: { value: new THREE.Vector2(w, h) },

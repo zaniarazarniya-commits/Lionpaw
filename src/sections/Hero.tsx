@@ -57,7 +57,18 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           zIndex: 2,
-          background: 'radial-gradient(ellipse at center, transparent 30%, rgba(26,60,52,0.5) 100%)',
+          background: 'radial-gradient(ellipse at center, transparent 20%, rgba(26,60,52,0.6) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Mobile text readability overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+          background: 'radial-gradient(ellipse at 50% 45%, rgba(21,27,14,0.35) 0%, transparent 60%)',
           pointerEvents: 'none',
         }}
       />
@@ -95,7 +106,7 @@ export default function Hero() {
             className="text-display"
             style={{
               color: '#F5F1E6',
-              textShadow: '0 4px 30px rgba(0,0,0,0.7), 0 0 80px rgba(74,93,35,0.4)',
+              textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 4px 40px rgba(0,0,0,0.6), 0 0 100px rgba(21,27,14,0.5)',
               opacity: 0,
               willChange: 'transform, opacity',
             }}
@@ -112,7 +123,7 @@ export default function Hero() {
               margin: '16px auto 0',
               opacity: 0,
               willChange: 'transform, opacity',
-              textShadow: '0 3px 20px rgba(0,0,0,0.6)',
+              textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 4px 30px rgba(0,0,0,0.5)',
             }}
           >
             {t.hero.subtitle}

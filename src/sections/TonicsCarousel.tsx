@@ -13,6 +13,7 @@ const TONICS = [
 export default function TonicsCarousel() {
   const { t } = useLang()
   const sectionRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
@@ -121,13 +122,16 @@ export default function TonicsCarousel() {
             {t.tonics.label}
           </h2>
           <div
+            ref={scrollRef}
+            id="tonics-scroll"
             style={{
               display: 'flex',
               gap: 16,
               overflowX: 'auto',
               scrollSnapType: 'x mandatory',
-              padding: '0 24px',
+              padding: '0 12vw',
               scrollbarWidth: 'none',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
             {TONICS.map((tonic, i) => (
@@ -136,7 +140,7 @@ export default function TonicsCarousel() {
                 onClick={() => setActiveIndex(i)}
                 style={{
                   scrollSnapAlign: 'center',
-                  flex: '0 0 70vw',
+                  flex: '0 0 76vw',
                   textAlign: 'center',
                 }}
               >
@@ -159,7 +163,12 @@ export default function TonicsCarousel() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 24 }}>
             <button
-              onClick={() => setActiveIndex((prev) => (prev - 1 + TONICS.length) % TONICS.length)}
+              onClick={() => {
+                const prev = (activeIndex - 1 + TONICS.length) % TONICS.length
+                setActiveIndex(prev)
+                const el = scrollRef.current?.children[prev] as HTMLElement
+                el?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+              }}
               style={{
                 width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
                 background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -172,7 +181,12 @@ export default function TonicsCarousel() {
               {t.tonics.count(activeIndex + 1, TONICS.length)}
             </span>
             <button
-              onClick={() => setActiveIndex((prev) => (prev + 1) % TONICS.length)}
+              onClick={() => {
+                const next = (activeIndex + 1) % TONICS.length
+                setActiveIndex(next)
+                const el = scrollRef.current?.children[next] as HTMLElement
+                el?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
+              }}
               style={{
                 width: 44, height: 44, borderRadius: '50%', border: '1px solid rgba(245,241,230,0.3)',
                 background: 'rgba(245,241,230,0.1)', color: '#F5F1E6', display: 'flex', alignItems: 'center', justifyContent: 'center',
