@@ -20,10 +20,6 @@ uniform vec2 resolution;
 
 #define PI 3.14159265359
 
-float hash(float n) {
-  return fract(sin(n) * 43758.5453123);
-}
-
 vec2 mod289v2(vec2 x) {
   return x - floor(x * (1.0 / 289.0)) * 289.0;
 }
@@ -64,7 +60,7 @@ float fbm(vec2 p) {
   float value = 0.0;
   float amplitude = 0.5;
   float frequency = 1.0;
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 3; i++) {
     value += amplitude * snoise(p * frequency);
     amplitude *= 0.5;
     frequency *= 2.0;
@@ -80,14 +76,14 @@ float cloudNoise(vec2 p, float t) {
 
 float rayMarch(vec2 uv, vec2 lightPos, float t) {
   vec2 rayDir = normalize(lightPos - uv);
-  float numSteps = 24.0;
+  float numSteps = 16.0;
   float stepSize = 1.0 / numSteps;
   vec2 rayOrigin = uv;
   float illumination = 0.0;
   float transmittance = 1.0;
   float absorption = 2.8 * uCloudDensity;
   vec3 lightColor = vec3(0.94, 0.85, 0.47);
-  for (float i = 0.0; i < 24.0; i++) {
+  for (float i = 0.0; i < 16.0; i++) {
     float progress = (i + 0.5) * stepSize;
     vec2 samplePos = rayOrigin + rayDir * progress * 0.7;
     float cloud = cloudNoise(samplePos * 1.5, t) * uCloudDensity;
@@ -129,14 +125,6 @@ uniform vec2 resolution;
 
 #define PI 3.14159265359
 
-float hash(float n) {
-  return fract(sin(n) * 43758.5453123);
-}
-
-float hash2(vec2 p) {
-  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
 vec2 mod289v2(vec2 x) {
   return x - floor(x * (1.0 / 289.0)) * 289.0;
 }
@@ -177,7 +165,7 @@ float fbm(vec2 p) {
   float value = 0.0;
   float amplitude = 0.5;
   float frequency = 1.0;
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 3; i++) {
     value += amplitude * snoise(p * frequency);
     amplitude *= 0.5;
     frequency *= 2.0;
@@ -193,14 +181,14 @@ float cloudNoise(vec2 p, float t) {
 
 float rayMarch(vec2 uv, vec2 lightPos, float t) {
   vec2 rayDir = normalize(lightPos - uv);
-  float numSteps = 24.0;
+  float numSteps = 16.0;
   float stepSize = 1.0 / numSteps;
   vec2 rayOrigin = uv;
   float illumination = 0.0;
   float transmittance = 1.0;
   float absorption = 2.8 * uCloudDensity;
   vec3 lightColor = vec3(0.94, 0.85, 0.47);
-  for (float i = 0.0; i < 24.0; i++) {
+  for (float i = 0.0; i < 16.0; i++) {
     float progress = (i + 0.5) * stepSize;
     vec2 samplePos = rayOrigin + rayDir * progress * 0.7;
     float cloud = cloudNoise(samplePos * 1.5, t) * uCloudDensity;
@@ -249,8 +237,6 @@ void main() {
   float cloudIllumination = blendedRay * 2.0 + 0.3;
   cloudColor *= cloudIllumination;
   color = mix(color, cloudColor, cloud * 0.6);
-  float dust = hash2(uv * 500.0 + t);
-  color += vec3(0.9, 0.82, 0.5) * dust * 0.015 * uRayIntensity;
   float vignette = 1.0 - smoothstep(0.5, 1.5, length(uv - vec2(0.5)) * 1.8);
   color *= 0.65 + vignette * 0.35;
   color = pow(color, vec3(0.95, 1.0, 1.12));
@@ -265,6 +251,7 @@ export default function GoldenCanopy() {
   const frameRef = useRef<number>(0)
   const isVisibleRef = useRef(true)
   const clockRef = useRef<THREE.Clock | null>(null)
+  const skipFrameRef = useRef(false)
 
   useEffect(() => {
     const container = containerRef.current
@@ -306,8 +293,9 @@ export default function GoldenCanopy() {
       },
     })
 
-    const rtW = isMobile ? Math.floor(w * 0.4) : Math.floor(w * 0.75)
-    const rtH = isMobile ? Math.floor(h * 0.4) : Math.floor(h * 0.75)
+    // Lower resolution render target for performance
+    const rtW = isMobile ? Math.floor(w * 0.35) : Math.floor(w * 0.55)
+    const rtH = isMobile ? Math.floor(h * 0.35) : Math.floor(h * 0.55)
     const renderTarget = new THREE.WebGLRenderTarget(rtW, rtH, {
       minFilter: THREE.LinearFilter,
       magFilter: THREE.LinearFilter,
@@ -326,11 +314,14 @@ export default function GoldenCanopy() {
     const clock = new THREE.Clock()
     clockRef.current = clock
 
+    // Frame-skip: render every other frame to halve GPU load
     const animate = () => {
-      if (!isVisibleRef.current) {
-        frameRef.current = requestAnimationFrame(animate)
-        return
-      }
+      frameRef.current = requestAnimationFrame(animate)
+
+      if (!isVisibleRef.current) return
+
+      skipFrameRef.current = !skipFrameRef.current
+      if (skipFrameRef.current) return
 
       const elapsed = clock.getElapsedTime()
       noiseMaterial.uniforms.uTime.value = elapsed
@@ -343,8 +334,6 @@ export default function GoldenCanopy() {
 
       displayMaterial.uniforms.uNoiseTexture.value = renderTarget.texture
       renderer.render(displayScene, orthoCamera)
-
-      frameRef.current = requestAnimationFrame(animate)
     }
 
     frameRef.current = requestAnimationFrame(animate)
@@ -355,8 +344,8 @@ export default function GoldenCanopy() {
       renderer.setSize(nw, nh)
       noiseMaterial.uniforms.resolution.value.set(nw, nh)
       displayMaterial.uniforms.resolution.value.set(nw, nh)
-      const nrtW = isMobile ? Math.floor(nw * 0.4) : Math.floor(nw * 0.75)
-      const nrtH = isMobile ? Math.floor(nh * 0.4) : Math.floor(nh * 0.75)
+      const nrtW = isMobile ? Math.floor(nw * 0.35) : Math.floor(nw * 0.55)
+      const nrtH = isMobile ? Math.floor(nh * 0.35) : Math.floor(nh * 0.55)
       renderTarget.setSize(nrtW, nrtH)
     }
 
