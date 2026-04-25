@@ -89,7 +89,7 @@ export default function Hero() {
           paddingTop: '0',
         }}
       >
-        <div style={{ textAlign: 'center', maxWidth: 800, padding: '40px 36px', borderRadius: 16, background: 'rgba(21,27,14,0.25)', backdropFilter: 'blur(4px)' }}>
+        <div style={{ textAlign: 'center', maxWidth: 800, padding: '0 24px' }}>
           <h1
             ref={titleRef}
             className="text-display"
