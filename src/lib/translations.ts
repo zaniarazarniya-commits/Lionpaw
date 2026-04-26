@@ -4,22 +4,22 @@ export const translations = {
   sv: {
     nav: {
       story: 'Vår Story',
-      tonics: 'Tonics',
+      tonics: 'Produkter',
       ingredients: 'Ingredienser',
       contact: 'Kontakt',
       shop: 'Beställ',
     },
     hero: {
       title: 'Lion Paw',
-      subtitle: 'Roots & Herbs — Bryggda i Sverige, inspirerade av Jamaica',
+      subtitle: 'Roots & Herbs — Bryggda i Lysekil på västkusten, med örtkunskap från Jamaica',
     },
     welcome: {
       label: 'VÄLKOMMEN',
-      heading: 'Roots Tonics från naturens hjärta',
-      body: 'På Lion Paw brygger vi våra tonics på det gamla sättet — långsamt, med respekt för växterna och traditionerna som bär dem. Varje flaska är en blandning av karibisk örtkunskap och svenskt hantverk, naturligt fermenterad för en levande, vibrerande dryck.',
+      heading: 'Roots, Herbs & Natural Care',
+      body: 'På Lion Paw skapar vi våra produkter på det gamla sättet — långsamt, med respekt för växterna och havet som omger oss. Från naturligt fermenterade tonics och mineralrika havsprodukter till vårdande hudvård. Varje produkt är en blandning av karibisk örtkunskap och svenskt västkusthantverk, förädlad bland klippor och salta vindar i Lysekil.',
     },
     tonics: {
-      label: 'Våra Tonics',
+      label: 'Våra Produkter',
       count: (n: number, total: number) =>
         `${String(n).padStart(2, '0')} / ${String(total).padStart(2, '0')}`,
     },
@@ -45,72 +45,88 @@ export const translations = {
         },
       ],
     },
-    marquee: 'ROTADE I TRADITION · BRYGGDA MED SJÄL · LION PAW · ',
+    marquee: 'LYSEKIL · BOHUSLÄN · VÄSTKUSTEN · ROTADE I TRADITION · BRYGGDA MED SJÄL · LION PAW · ',
     range: {
       label: 'FRÅN VÅRT SORTIMENT',
       heading: 'Våra produkter',
       products: [
         {
           name: 'Damiana Roots Tonic',
-          desc: 'En värmande blandning av damiana, ingefära och karibiska kryddor. Långsamt fermenterad för en naturligt djup och levande tonic.',
+          desc: 'Herbal Fortifier — En autentisk örtelixir för vitalitet och balans. Bryggd med damiana och karibiska örter efter traditionella metoder.',
         },
         {
-          name: 'Fermenta Femina',
-          desc: 'En mild ört-tonic skapad för kvinnor. Hallonblad, rödklöver och damvante med värmande ingefära och kardemumma.',
+          name: 'Fermentina Fermenta',
+          desc: 'Feminine Harmony — En naturligt fermenterad tonic för kvinnans vitalitet och balans. 200 ml av ren örtkraft.',
         },
         {
-          name: 'Golden Irish Seamoss',
-          desc: 'Vildväxande havsmossa från rena atlantvatten. Ett dagligt mineraltillskott med 92 av de 102 mineraler kroppen behöver.',
+          name: 'Molundo Roots Tonic',
+          desc: 'Traditional Herbal Support — För vitalitet och balans. 90 kapslar med noga utvalda traditionella örter.',
+        },
+        {
+          name: 'Africana Purius',
+          desc: 'Pulver/Kapslar — Renad och traditionell ört för kropp och harmoni. 90 kapslar för ditt dagliga välbefinnande.',
+        },
+        {
+          name: 'Irish Seamoss Gel',
+          desc: 'Vildväxande karragentång "Irish Seamoss" (Chondrus crispus). 100 % naturligt, veganskt och rikt på mineraler. 500 ml.',
+        },
+        {
+          name: 'Irish Seamoss Golden',
+          desc: 'Vår gyllene variant av vildväxande Irish Seamoss. Ett dagligt mineraltillskott från rena atlantvatten.',
+        },
+        {
+          name: 'Ringblomssalva',
+          desc: 'Calendula Balm — Naturlig hudvård som lugnar, skyddar och återfuktar. 60 ml av ren ringblomskraft.',
         },
       ],
     },
     ingredients: {
-      label: '002 — RÖTTERNA',
-      headingLine1: 'SEX RÖTTER.',
-      headingLine2: 'EN FLASKA.',
-      subheading: 'Inga kemikalier. Ingen alkohol. Bara vad jorden erbjudit i tusentals år.',
+      label: '002 — INGREDIENSERNA',
+      headingLine1: 'RENA ÖRTER.',
+      headingLine2: 'RIKTIG KRAFT.',
+      subheading: 'Inga kemikalier. Inga tillsatser. Bara vad jorden och havet erbjudit i tusentals år. Förädlade i Lysekil.',
       roots: [
         {
           num: '01',
-          name: 'SARSAPARILLA',
-          latin: 'SMILAX ORNATA',
+          name: 'DAMIANA',
+          latin: 'TURNERA DIFFUSA',
           benefit:
-            'Rensar blodet och har använts i århundraden för att stärka kroppens naturliga försvar.',
+            'Traditionell ört för vitalitet och balans. Används i århundraden för sin uppfriskande och stärkande effekt.',
         },
         {
           num: '02',
-          name: 'CHANEY ROOT',
-          latin: 'COCOLOBA DIVERSIFOLIA',
+          name: 'RINGBLOMMA',
+          latin: 'CALENDULA OFFICINALIS',
           benefit:
-            'Rik på järn. Stärker blodet och ger kroppen det den behöver för att bygga energi.',
+            'Lugnar, skyddar och återfuktar huden naturligt. En av naturens mest skonsamma läkeörter.',
         },
         {
           num: '03',
-          name: 'STRONG BACK',
-          latin: 'DESMODIUM GANGETICUM',
+          name: 'KARRAGENTÅNG',
+          latin: 'CHONDRUS CRISPUS',
           benefit:
-            'Stärker rygg och leder. En traditionell favorit bland dem som arbetar hårt.',
+            'Vildväxande havsmossa rik på 92 av 102 mineraler. Stödjer kroppens naturliga välbefinnande.',
         },
         {
           num: '04',
-          name: 'MEDINA',
-          latin: 'ALYSICARPUS VAGINALIS',
+          name: 'MOLUNDO',
+          latin: 'TRADITIONELL ÖRT',
           benefit:
-            'Stärker immunförsvaret och bidrar till kroppens återhämtning.',
+            'Traditionell ört för vitalitet och balans. Noga utvald för sina stärkande egenskaper.',
         },
         {
           num: '05',
-          name: 'GUINEA HEN WEED',
-          latin: 'PETIVERIA ALLIACEA',
+          name: 'FERMENTERADE ÖRTER',
+          latin: 'NATURLIG FERMENTERING',
           benefit:
-            'Kraftfull ört med traditionella antiinflammatoriska egenskaper.',
+            'Naturligt fermenterade örter som främjar kroppens balans och stödjer välbefinnande.',
         },
         {
           num: '06',
-          name: 'BLACK WISS',
-          latin: 'BANISTERIOPSIS MURICATA',
+          name: 'AFRIKANSKA ÖRTER',
+          latin: 'TRADITIONELLA RENADE ÖRTER',
           benefit:
-            'Kompletterar övriga rötter och bidrar till tonics övergripande styrka.',
+            'Renade och traditionella örter för kropp och harmoni. Örtkunskap som gått i arv genom generationer.',
         },
       ],
       featureCaption: 'Hela ingredienser, inget dolt',
@@ -124,7 +140,7 @@ export const translations = {
     },
     footer: {
       tagline: 'Roots & Herbs',
-      description: 'Tillverkad i Sverige med respekt för kultur, natur och tradition.',
+      description: 'Tillverkad i Lysekil på västkusten — där karibisk örtkunskap möter bohuslänskt hantverk och havets krafter.',
       follow: 'FÖLJ OSS',
       wholesale: 'Handla',
       copyright: '© 2025 Lion Paw Roots & Herbs. Alla rättigheter förbehållna.',
@@ -133,22 +149,22 @@ export const translations = {
   en: {
     nav: {
       story: 'Our Story',
-      tonics: 'Tonics',
+      tonics: 'Products',
       ingredients: 'Ingredients',
       contact: 'Contact',
       shop: 'Shop Now',
     },
     hero: {
       title: 'Lion Paw',
-      subtitle: 'Roots & Herbs — Crafted in Sweden, Inspired by Jamaica',
+      subtitle: 'Roots & Herbs — Crafted in Lysekil on the west coast, with herbal wisdom from Jamaica',
     },
     welcome: {
       label: 'WELCOME',
-      heading: 'Roots Tonics from the Heart of Nature',
-      body: 'At Lion Paw, we brew our tonics the old way — slowly, with respect for the plants and the traditions that carry them. Every bottle is a blend of Caribbean herbal wisdom and Swedish craftsmanship, fermented naturally for a living, vibrant drink.',
+      heading: 'Roots, Herbs & Natural Care',
+      body: 'At Lion Paw, we create our products the old way — slowly, with respect for the plants and the sea that surrounds us. From naturally fermented tonics and mineral-rich sea moss to nurturing skincare. Every product is a blend of Caribbean herbal wisdom and Swedish west coast craftsmanship, refined among rocks and salty winds in Lysekil.',
     },
     tonics: {
-      label: 'Our Tonics',
+      label: 'Our Products',
       count: (n: number, total: number) =>
         `${String(n).padStart(2, '0')} / ${String(total).padStart(2, '0')}`,
     },
@@ -174,72 +190,88 @@ export const translations = {
         },
       ],
     },
-    marquee: 'ROOTED IN TRADITION \u00B7 BREWED WITH SOUL \u00B7 LION PAW \u00B7 ',
+    marquee: 'LYSEKIL \u00B7 BOHUSL\u00C4N \u00B7 WEST COAST \u00B7 ROOTED IN TRADITION \u00B7 BREWED WITH SOUL \u00B7 LION PAW \u00B7 ',
     range: {
       label: 'FROM OUR RANGE',
       heading: 'From Our Range',
       products: [
         {
           name: 'Damiana Roots Tonic',
-          desc: 'A warming blend of damiana, ginger, and island spices. Slowly fermented for a naturally deep and living tonic.',
+          desc: 'Herbal Fortifier — An authentic herbal elixir for vitality and balance. Brewed with damiana and Caribbean herbs using traditional methods.',
         },
         {
-          name: 'Fermenta Femina',
-          desc: 'A gentle herbal tonic crafted for women. Raspberry leaf, red clover & lady\'s mantle with warming ginger and cardamom.',
+          name: 'Fermentina Fermenta',
+          desc: 'Feminine Harmony — A naturally fermented tonic for feminine vitality and balance. 200 ml of pure herbal power.',
         },
         {
-          name: 'Golden Irish Seamoss',
-          desc: 'Wildcrafted sea moss from clean Atlantic waters. A daily mineral boost with 92 of the 102 minerals your body needs.',
+          name: 'Molundo Roots Tonic',
+          desc: 'Traditional Herbal Support — For vitality and balance. 90 capsules with carefully selected traditional herbs.',
+        },
+        {
+          name: 'Africana Purius',
+          desc: 'Powder/Capsules — Purified traditional herbs for body and harmony. 90 capsules for your daily well-being.',
+        },
+        {
+          name: 'Irish Seamoss Gel',
+          desc: 'Wildcrafted carrageen moss "Irish Seamoss" (Chondrus crispus). 100% natural, vegan and rich in minerals. 500 ml.',
+        },
+        {
+          name: 'Irish Seamoss Golden',
+          desc: 'Our golden variant of wildcrafted Irish Seamoss. A daily mineral supplement from clean Atlantic waters.',
+        },
+        {
+          name: 'Ringblomssalva',
+          desc: 'Calendula Balm — Natural skin care that soothes, protects and moisturizes. 60 ml of pure calendula power.',
         },
       ],
     },
     ingredients: {
-      label: '002 — THE ROOTS',
-      headingLine1: 'SIX ROOTS.',
-      headingLine2: 'ONE BOTTLE.',
-      subheading: 'No chemicals. No alcohol. Just what the earth has offered for thousands of years.',
+      label: '002 — THE INGREDIENTS',
+      headingLine1: 'PURE HERBS.',
+      headingLine2: 'REAL POWER.',
+      subheading: 'No chemicals. No additives. Just what the earth and sea have offered for thousands of years. Refined in Lysekil.',
       roots: [
         {
           num: '01',
-          name: 'SARSAPARILLA',
-          latin: 'SMILAX ORNATA',
+          name: 'DAMIANA',
+          latin: 'TURNERA DIFFUSA',
           benefit:
-            'Cleanses the blood and has been used for centuries to strengthen the body\'s natural defenses.',
+            'Traditional herb for vitality and balance. Used for centuries for its refreshing and strengthening effects.',
         },
         {
           num: '02',
-          name: 'CHANEY ROOT',
-          latin: 'COCOLOBA DIVERSIFOLIA',
+          name: 'CALENDULA',
+          latin: 'CALENDULA OFFICINALIS',
           benefit:
-            'Rich in iron. Strengthens the blood and gives the body what it needs to build energy.',
+            'Soothes, protects and moisturizes the skin naturally. One of nature\'s gentlest healing herbs.',
         },
         {
           num: '03',
-          name: 'STRONG BACK',
-          latin: 'DESMODIUM GANGETICUM',
+          name: 'CARRAGEEN MOSS',
+          latin: 'CHONDRUS CRISPUS',
           benefit:
-            'Strengthens back and joints. A traditional favourite among those who work hard.',
+            'Wildcrafted sea moss rich in 92 of 102 minerals. Supports the body\'s natural well-being.',
         },
         {
           num: '04',
-          name: 'MEDINA',
-          latin: 'ALYSICARPUS VAGINALIS',
+          name: 'MOLUNDO',
+          latin: 'TRADITIONAL HERB',
           benefit:
-            'Strengthens the immune system and contributes to the body\'s recovery.',
+            'Traditional herb for vitality and balance. Carefully selected for its strengthening properties.',
         },
         {
           num: '05',
-          name: 'GUINEA HEN WEED',
-          latin: 'PETIVERIA ALLIACEA',
+          name: 'FERMENTED HERBS',
+          latin: 'NATURAL FERMENTATION',
           benefit:
-            'Powerful herb with traditional anti-inflammatory properties.',
+            'Naturally fermented herbs that promote the body\'s balance and support well-being.',
         },
         {
           num: '06',
-          name: 'BLACK WISS',
-          latin: 'BANISTERIOPSIS MURICATA',
+          name: 'AFRICAN HERBS',
+          latin: 'TRADITIONAL PURIFIED HERBS',
           benefit:
-            'Complements the other roots and contributes to the tonic\'s overall strength.',
+            'Purified and traditional herbs for body and harmony. Herbal knowledge passed down through generations.',
         },
       ],
       featureCaption: 'Whole ingredients, nothing hidden',
@@ -253,7 +285,7 @@ export const translations = {
     },
     footer: {
       tagline: 'Roots & Herbs',
-      description: 'Tillverkad i Sverige med respekt for kultur, natur och tradition.',
+      description: 'Crafted in Lysekil on the Swedish west coast — where Caribbean herbal wisdom meets Bohuslän craftsmanship and the power of the sea.',
       follow: 'FOLLOW THE PAW',
       wholesale: 'Wholesale',
       copyright: '\u00A9 2025 Lion Paw Roots & Herbs. All rights reserved.',

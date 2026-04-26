@@ -63,7 +63,7 @@ export default function Ingredients() {
       ref={sectionRef}
       className="section-padding"
       style={{
-        background: '#F5F1E6',
+        background: '#F0E8D8',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -74,7 +74,7 @@ export default function Ingredients() {
           <span
             className="text-label"
             style={{
-              color: '#4A5D23',
+              color: '#5A4A1E',
               display: 'block',
               marginBottom: 20,
               letterSpacing: '0.2em',
@@ -105,7 +105,7 @@ export default function Ingredients() {
           <p
             className="text-body"
             style={{
-              color: 'rgba(107, 68, 35, 0.7)',
+              color: 'rgba(107, 68, 35, 0.75)',
               maxWidth: 520,
               margin: '0 auto',
               fontSize: '1rem',
@@ -140,7 +140,7 @@ export default function Ingredients() {
                   fontSize: '0.7rem',
                   fontWeight: 500,
                   letterSpacing: '0.15em',
-                  color: 'rgba(107, 68, 35, 0.4)',
+                  color: 'rgba(107, 68, 35, 0.45)',
                   display: 'block',
                   marginBottom: 12,
                 }}
@@ -152,7 +152,7 @@ export default function Ingredients() {
                 style={{
                   fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)',
                   fontWeight: 700,
-                  color: '#6B4423',
+                  color: '#7B5433',
                   letterSpacing: '0.02em',
                   marginBottom: 6,
                 }}
@@ -165,7 +165,7 @@ export default function Ingredients() {
                   fontSize: '0.7rem',
                   fontWeight: 500,
                   letterSpacing: '0.15em',
-                  color: 'rgba(107, 68, 35, 0.5)',
+                  color: 'rgba(107, 68, 35, 0.55)',
                   display: 'block',
                   marginBottom: 14,
                 }}
@@ -177,7 +177,7 @@ export default function Ingredients() {
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: '0.9rem',
                   lineHeight: 1.65,
-                  color: 'rgba(107, 68, 35, 0.7)',
+                  color: 'rgba(107, 68, 35, 0.75)',
                   maxWidth: 320,
                 }}
               >

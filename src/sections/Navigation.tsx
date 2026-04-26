@@ -190,7 +190,7 @@ export default function Navigation() {
       {mobileOpen && (
         <div
           className="md:hidden absolute top-16 left-0 right-0 p-6 flex flex-col gap-4"
-          style={{ background: 'rgba(74, 93, 35, 0.98)', backdropFilter: 'blur(12px)' }}
+          style={{ background: 'rgba(60, 45, 20, 0.98)', backdropFilter: 'blur(12px)' }}
         >
           {NAV_LINKS.map((link) => (
             <a

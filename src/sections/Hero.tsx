@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 import gsap from 'gsap'
-import GoldenCanopy from './GoldenCanopy'
+import HeroCanvas from './HeroCanvas'
 import { useLang } from '../lib/i18n'
 
 export default function Hero() {
@@ -46,18 +46,16 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* WebGL Shader Background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-        <GoldenCanopy />
-      </div>
+      {/* Canvas Animation Background */}
+      <HeroCanvas />
 
-      {/* Vignette overlay */}
+      {/* Vignette overlay — warm, not cold green */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 2,
-          background: 'radial-gradient(ellipse at center, transparent 20%, rgba(26,60,52,0.6) 100%)',
+          background: 'radial-gradient(ellipse at center, transparent 30%, rgba(60, 45, 20, 0.35) 100%)',
           pointerEvents: 'none',
         }}
       />
@@ -68,12 +66,12 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           zIndex: 2,
-          background: 'radial-gradient(ellipse at 50% 45%, rgba(21,27,14,0.35) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at 50% 45%, rgba(40, 30, 15, 0.25) 0%, transparent 60%)',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Bottom gradient */}
+      {/* Bottom gradient — warm sand instead of jungle green */}
       <div
         style={{
           position: 'absolute',
@@ -81,7 +79,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           height: '25%',
-          background: 'linear-gradient(to bottom, transparent, #4A5D23)',
+          background: 'linear-gradient(to bottom, transparent, rgba(92, 58, 30, 0.3))',
           zIndex: 2,
           pointerEvents: 'none',
         }}
@@ -100,13 +98,13 @@ export default function Hero() {
           paddingTop: '0',
         }}
       >
-        <div style={{ textAlign: 'center', maxWidth: 800, padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', maxWidth: 900, padding: '0 24px' }}>
           <h1
             ref={titleRef}
             className="text-display"
             style={{
               color: '#F5F1E6',
-              textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 4px 40px rgba(0,0,0,0.6), 0 0 100px rgba(21,27,14,0.5)',
+              textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3), 0 0 80px rgba(92,58,30,0.4)',
               opacity: 0,
               willChange: 'transform, opacity',
             }}
@@ -117,13 +115,16 @@ export default function Hero() {
             ref={subtitleRef}
             className="text-sub-heading"
             style={{
-              color: '#C9A227',
-              marginTop: 16,
-              maxWidth: 600,
-              margin: '16px auto 0',
+              color: '#E8D4A0',
+              marginTop: 20,
+              maxWidth: 700,
+              margin: '20px auto 0',
               opacity: 0,
               willChange: 'transform, opacity',
-              textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 4px 30px rgba(0,0,0,0.5)',
+              textShadow: '0 2px 10px rgba(0,0,0,0.4), 0 4px 20px rgba(0,0,0,0.3)',
+              fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+              lineHeight: 1.5,
+              fontWeight: 400,
             }}
           >
             {t.hero.subtitle}
@@ -143,7 +144,7 @@ export default function Hero() {
             willChange: 'opacity',
           }}
         >
-          <ChevronDown size={32} color="#C9A227" />
+          <ChevronDown size={32} color="#E8D4A0" />
         </div>
       </div>
 

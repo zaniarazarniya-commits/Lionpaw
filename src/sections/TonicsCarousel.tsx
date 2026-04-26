@@ -3,11 +3,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useLang } from '../lib/i18n'
 
 const TONICS = [
-  { name: 'Damiana Roots', image: '/images/tonic-damiana.jpg' },
-  { name: 'Fermenta Femina', image: '/images/tonic-femina.jpg' },
-  { name: 'Burdock Bitters', image: '/images/tonic-burdock.jpg' },
-  { name: 'Ginger Fire', image: '/images/tonic-ginger.jpg' },
-  { name: 'Soursop Leaf', image: '/images/tonic-soursop.jpg' },
+  { name: 'Damiana Roots Tonic', image: '/images/product-damiana-tonic.jpg' },
+  { name: 'Fermentina Fermenta', image: '/images/product-fermentina.jpg' },
+  { name: 'Molundo Roots Tonic', image: '/images/product-molundo.jpg' },
+  { name: 'Africana Purius', image: '/images/product-africana.jpg' },
+  { name: 'Irish Seamoss Gel', image: '/images/product-seamoss-gel.jpg' },
+  { name: 'Ringblomssalva', image: '/images/product-ringblomssalva.jpg' },
 ]
 
 export default function TonicsCarousel() {
@@ -85,31 +86,27 @@ export default function TonicsCarousel() {
           overflow: 'hidden',
         }}
       >
-        {/* Jungle background */}
+        {/* Warm coastal background */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
             zIndex: 0,
+            background: 'linear-gradient(135deg, #3d4a1e 0%, #5c3a1e 40%, #8b5a2b 70%, #c9a96e 100%)',
           }}
         >
-          <img
-            src="/images/hero-bg.jpg"
-            alt=""
+          <div
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-              filter: 'blur(2px) brightness(0.6)',
-              transform: 'scale(1.05)',
+              position: 'absolute',
+              inset: 0,
+              background: 'radial-gradient(ellipse at 70% 60%, rgba(232, 212, 160, 0.15) 0%, transparent 60%)',
             }}
           />
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'rgba(21, 27, 14, 0.55)',
+              background: 'rgba(40, 30, 15, 0.4)',
             }}
           />
         </div>
@@ -149,7 +146,7 @@ export default function TonicsCarousel() {
                   alt={tonic.name}
                   style={{
                     width: '100%',
-                    aspectRatio: '3/4',
+                    aspectRatio: '4/3',
                     objectFit: 'cover',
                     borderRadius: 8,
                     boxShadow: '0 12px 40px rgba(0,0,0,0.5)',
@@ -212,31 +209,27 @@ export default function TonicsCarousel() {
         perspective: '1000px',
       }}
     >
-      {/* Jungle background */}
+      {/* Warm coastal background */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           zIndex: 0,
+          background: 'linear-gradient(135deg, #2a3510 0%, #4a3a1e 30%, #6b4423 60%, #8b6914 100%)',
         }}
       >
-        <img
-          src="/images/hero-bg.jpg"
-          alt=""
+        <div
           style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            filter: 'blur(2px) brightness(0.55)',
-            transform: 'scale(1.05)',
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse at 60% 70%, rgba(232, 212, 160, 0.12) 0%, transparent 50%)',
           }}
         />
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(21,27,14,0.5), rgba(21,27,14,0.65))',
+            background: 'linear-gradient(to bottom, rgba(30,25,10,0.45), rgba(40,30,15,0.55))',
           }}
         />
       </div>

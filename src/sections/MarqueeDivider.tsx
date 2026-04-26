@@ -54,7 +54,7 @@ export default function MarqueeDivider() {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to right, rgba(21, 27, 14, 0.75), rgba(21, 27, 14, 0.6), rgba(21, 27, 14, 0.75))',
+          background: 'linear-gradient(to right, rgba(40, 30, 15, 0.7), rgba(50, 38, 20, 0.55), rgba(40, 30, 15, 0.7))',
           zIndex: 1,
         }}
       />

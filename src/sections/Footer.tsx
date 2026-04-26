@@ -41,7 +41,7 @@ export default function Footer() {
       id="footer"
       ref={footerRef}
       style={{
-        background: '#151B0E',
+        background: '#2A2010',
         padding: '80px 0 40px',
         position: 'relative',
         overflow: 'hidden',
@@ -70,7 +70,7 @@ export default function Footer() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(21, 27, 14, 0.6), rgba(21, 27, 14, 0.9))',
+            background: 'linear-gradient(to bottom, rgba(42, 32, 16, 0.6), rgba(42, 32, 16, 0.9))',
           }}
         />
       </div>
@@ -113,7 +113,7 @@ export default function Footer() {
                 fontSize: '1.2rem',
                 fontWeight: 600,
                 fontStyle: 'italic',
-                color: '#A3B899',
+                color: '#C9B896',
                 marginBottom: 12,
               }}
             >
@@ -123,7 +123,7 @@ export default function Footer() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '0.85rem',
-                color: 'rgba(163, 184, 153, 0.7)',
+                color: 'rgba(201, 184, 150, 0.7)',
                 maxWidth: 280,
                 lineHeight: 1.6,
               }}
@@ -142,7 +142,7 @@ export default function Footer() {
                   onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
                   className="transition-colors duration-300 hover:text-lion-ivory"
                   style={{
-                    color: '#A3B899',
+                    color: '#C9B896',
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: '0.85rem',
                     textDecoration: 'none',
@@ -184,7 +184,7 @@ export default function Footer() {
               href="tel:+467351498244"
               className="transition-colors duration-300 hover:text-lion-gold"
               style={{
-                color: '#A3B899',
+                color: '#C9B896',
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: '0.85rem',
                 display: 'flex',

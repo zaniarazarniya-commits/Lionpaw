@@ -66,7 +66,7 @@ export default function Welcome() {
       ref={sectionRef}
       className="section-padding"
       style={{
-        background: '#F5F1E6',
+        background: '#F0E8D8',
         position: 'relative',
         overflow: 'hidden',
       }}
