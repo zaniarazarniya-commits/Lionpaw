@@ -71,10 +71,6 @@ export const translations = {
           desc: 'Vildväxande karragentång "Irish Seamoss" (Chondrus crispus). 100 % naturligt, veganskt och rikt på mineraler. 500 ml.',
         },
         {
-          name: 'Irish Seamoss Golden',
-          desc: 'Vår gyllene variant av vildväxande Irish Seamoss. Ett dagligt mineraltillskott från rena atlantvatten.',
-        },
-        {
           name: 'Ringblomssalva',
           desc: 'Calendula Balm — Naturlig hudvård som lugnar, skyddar och återfuktar. 60 ml av ren ringblomskraft.',
         },
@@ -214,10 +210,6 @@ export const translations = {
         {
           name: 'Irish Seamoss Gel',
           desc: 'Wildcrafted carrageen moss "Irish Seamoss" (Chondrus crispus). 100% natural, vegan and rich in minerals. 500 ml.',
-        },
-        {
-          name: 'Irish Seamoss Golden',
-          desc: 'Our golden variant of wildcrafted Irish Seamoss. A daily mineral supplement from clean Atlantic waters.',
         },
         {
           name: 'Ringblomssalva',
