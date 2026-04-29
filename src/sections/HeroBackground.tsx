@@ -58,9 +58,22 @@ export default function HeroBackground({
           willChange: 'transform',
         }}
       />
+      {/* Warm sunset glow from bottom */}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom, rgba(60,40,15,0.15), rgba(92,58,30,0.25))',
+        background: 'linear-gradient(to top, rgba(200,100,30,0.35) 0%, rgba(180,80,20,0.15) 35%, transparent 65%)',
+        mixBlendMode: 'overlay',
+      }} />
+      {/* Amber/orange tint across image */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(135deg, rgba(255,160,60,0.12) 0%, rgba(220,90,40,0.18) 50%, rgba(180,60,30,0.22) 100%)',
+        mixBlendMode: 'soft-light',
+      }} />
+      {/* Darken slightly for text contrast */}
+      <div style={{
+        position: 'absolute', inset: 0,
+        background: 'linear-gradient(to bottom, rgba(60,30,10,0.1), rgba(80,40,15,0.25))',
         mixBlendMode: 'multiply',
       }} />
     </div>
