@@ -88,6 +88,7 @@ export const translations = {
           latin: 'TURNERA DIFFUSA',
           benefit:
             'Traditionell ört för vitalitet och balans. Används i århundraden för sin uppfriskande och stärkande effekt.',
+          origin: 'Mexiko & Karibien',
         },
         {
           num: '02',
@@ -95,6 +96,7 @@ export const translations = {
           latin: 'CALENDULA OFFICINALIS',
           benefit:
             'Lugnar, skyddar och återfuktar huden naturligt. En av naturens mest skonsamma läkeörter.',
+          origin: 'Medelhavet',
         },
         {
           num: '03',
@@ -102,6 +104,7 @@ export const translations = {
           latin: 'CHONDRUS CRISPUS',
           benefit:
             'Vildväxande havsmossa rik på 92 av 102 mineraler. Stödjer kroppens naturliga välbefinnande.',
+          origin: 'Nordatlanten (Irländska kusten)',
         },
         {
           num: '04',
@@ -109,6 +112,7 @@ export const translations = {
           latin: 'TRADITIONELL ÖRT',
           benefit:
             'Traditionell ört för vitalitet och balans. Noga utvald för sina stärkande egenskaper.',
+          origin: 'Jamaica',
         },
         {
           num: '05',
@@ -116,6 +120,7 @@ export const translations = {
           latin: 'NATURLIG FERMENTERING',
           benefit:
             'Naturligt fermenterade örter som främjar kroppens balans och stödjer välbefinnande.',
+          origin: 'Lysekil, Sverige',
         },
         {
           num: '06',
@@ -123,6 +128,7 @@ export const translations = {
           latin: 'TRADITIONELLA RENADE ÖRTER',
           benefit:
             'Renade och traditionella örter för kropp och harmoni. Örtkunskap som gått i arv genom generationer.',
+          origin: 'Västafrika',
         },
       ],
       featureCaption: 'Hela ingredienser, inget dolt',
@@ -229,6 +235,7 @@ export const translations = {
           latin: 'TURNERA DIFFUSA',
           benefit:
             'Traditional herb for vitality and balance. Used for centuries for its refreshing and strengthening effects.',
+          origin: 'Mexico & Caribbean',
         },
         {
           num: '02',
@@ -236,6 +243,7 @@ export const translations = {
           latin: 'CALENDULA OFFICINALIS',
           benefit:
             'Soothes, protects and moisturizes the skin naturally. One of nature\'s gentlest healing herbs.',
+          origin: 'Mediterranean',
         },
         {
           num: '03',
@@ -243,6 +251,7 @@ export const translations = {
           latin: 'CHONDRUS CRISPUS',
           benefit:
             'Wildcrafted sea moss rich in 92 of 102 minerals. Supports the body\'s natural well-being.',
+          origin: 'North Atlantic (Irish coast)',
         },
         {
           num: '04',
@@ -250,6 +259,7 @@ export const translations = {
           latin: 'TRADITIONAL HERB',
           benefit:
             'Traditional herb for vitality and balance. Carefully selected for its strengthening properties.',
+          origin: 'Jamaica',
         },
         {
           num: '05',
@@ -257,6 +267,7 @@ export const translations = {
           latin: 'NATURAL FERMENTATION',
           benefit:
             'Naturally fermented herbs that promote the body\'s balance and support well-being.',
+          origin: 'Lysekil, Sweden',
         },
         {
           num: '06',
@@ -264,6 +275,7 @@ export const translations = {
           latin: 'TRADITIONAL PURIFIED HERBS',
           benefit:
             'Purified and traditional herbs for body and harmony. Herbal knowledge passed down through generations.',
+          origin: 'West Africa',
         },
       ],
       featureCaption: 'Whole ingredients, nothing hidden',
@@ -307,7 +319,7 @@ export interface Translations {
     headingLine1: string
     headingLine2: string
     subheading: string
-    roots: { num: string; name: string; latin: string; benefit: string }[]
+    roots: { num: string; name: string; latin: string; benefit: string; origin: string }[]
     featureCaption: string
   }
   newsletter: { heading: string; body: string; placeholder: string; button: string; thanks: string }

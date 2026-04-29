@@ -2,7 +2,7 @@ import { memo } from 'react'
 import Navigation from './sections/Navigation'
 import Hero from './sections/Hero'
 import Welcome from './sections/Welcome'
-import TonicsCarousel from './sections/TonicsCarousel'
+import IngredientExplorer from './sections/IngredientExplorer'
 import TheCraft from './sections/TheCraft'
 import MarqueeDivider from './sections/MarqueeDivider'
 import FromOurRange from './sections/FromOurRange'
@@ -13,7 +13,7 @@ import Footer from './sections/Footer'
 const MemoizedNavigation = memo(Navigation)
 const MemoizedHero = memo(Hero)
 const MemoizedWelcome = memo(Welcome)
-const MemoizedTonicsCarousel = memo(TonicsCarousel)
+const MemoizedIngredientExplorer = memo(IngredientExplorer)
 const MemoizedTheCraft = memo(TheCraft)
 const MemoizedMarqueeDivider = memo(MarqueeDivider)
 const MemoizedFromOurRange = memo(FromOurRange)
@@ -28,7 +28,7 @@ export default function App() {
       <main>
         <MemoizedHero />
         <MemoizedWelcome />
-        <MemoizedTonicsCarousel />
+        <MemoizedIngredientExplorer />
         <MemoizedTheCraft />
         <MemoizedMarqueeDivider />
         <MemoizedFromOurRange />
