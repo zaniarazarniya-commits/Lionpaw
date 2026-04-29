@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '../lib/i18n'
+import ImageLightbox from '../components/ImageLightbox'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,6 +23,15 @@ export default function FromOurRange() {
   const sectionRef = useRef<HTMLElement>(null)
   const cardsRef = useRef<HTMLDivElement>(null)
   const categories = lang === 'sv' ? CATEGORIES_SV : CATEGORIES_EN
+
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImage, setLightboxImage] = useState({ src: '', alt: '' })
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxImage({ src, alt })
+    setLightboxOpen(true)
+  }
+  const closeLightbox = () => setLightboxOpen(false)
 
   useEffect(() => {
     const cards = cardsRef.current?.querySelectorAll('.product-card')
@@ -72,6 +82,7 @@ export default function FromOurRange() {
             >
               <div
                 className="shimmer-hover"
+                onClick={() => openLightbox(IMAGES[i], product.name)}
                 style={{
                   borderRadius: 8,
                   overflow: 'hidden',
@@ -169,6 +180,13 @@ export default function FromOurRange() {
           ))}
         </div>
       </div>
+
+      <ImageLightbox
+        src={lightboxImage.src}
+        alt={lightboxImage.alt}
+        open={lightboxOpen}
+        onClose={closeLightbox}
+      />
 
       <style>{`
         .product-card:hover .rasta-stripe {

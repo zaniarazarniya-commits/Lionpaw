@@ -152,7 +152,7 @@
 }
 
 .hero-bg-animated {
-  animation: heroKenBurns 25s ease-in-out infinite alternate;
+  animation: heroKenBurns 10s ease-in-out infinite alternate;
 }
 
 /* Performance: compositor hints for animated elements */
