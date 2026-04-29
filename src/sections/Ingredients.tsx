@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '../lib/i18n'
+import HerbSilhouette from '../components/HerbSilhouette'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -56,6 +57,7 @@ export default function Ingredients() {
   }, [])
 
   const roots = t.ingredients.roots
+  const herbKeys = ['damiana', 'calendula', 'seamoss', 'molundo', 'fermented', 'african'] as const
 
   return (
     <section
@@ -126,64 +128,82 @@ export default function Ingredients() {
           }}
         >
           {roots.map((root, i) => (
-            <div
-              key={i}
-              className="root-card"
-              style={{
-                padding: '32px 24px',
-                borderTop: '1px solid rgba(107, 68, 35, 0.15)',
-              }}
-            >
-              <span
+              <div
+                key={i}
+                className="root-card"
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '0.7rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.15em',
-                  color: 'rgba(107, 68, 35, 0.45)',
-                  display: 'block',
-                  marginBottom: 12,
+                  padding: '32px 24px',
+                  borderTop: '1px solid rgba(107, 68, 35, 0.15)',
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                {root.num}
-              </span>
-              <h3
-                className="font-display"
-                style={{
-                  fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)',
-                  fontWeight: 700,
-                  color: '#7B5433',
-                  letterSpacing: '0.02em',
-                  marginBottom: 6,
-                }}
-              >
-                {root.name}
-              </h3>
-              <span
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '0.7rem',
-                  fontWeight: 500,
-                  letterSpacing: '0.15em',
-                  color: 'rgba(107, 68, 35, 0.55)',
-                  display: 'block',
-                  marginBottom: 14,
-                }}
-              >
-                {root.latin}
-              </span>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: '0.9rem',
-                  lineHeight: 1.65,
-                  color: 'rgba(107, 68, 35, 0.75)',
-                  maxWidth: 320,
-                }}
-              >
-                {root.benefit}
-              </p>
-            </div>
+                {/* Decorative silhouette */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '-10px',
+                    right: '-10px',
+                    width: 100,
+                    height: 100,
+                    opacity: 0.06,
+                    color: '#6B4423',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  <HerbSilhouette herb={herbKeys[i]} style={{ width: '100%', height: '100%' }} />
+                </div>
+
+                <span
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: '0.7rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.15em',
+                    color: 'rgba(107, 68, 35, 0.45)',
+                    display: 'block',
+                    marginBottom: 12,
+                  }}
+                >
+                  {root.num}
+                </span>
+                <h3
+                  className="font-display"
+                  style={{
+                    fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)',
+                    fontWeight: 700,
+                    color: '#7B5433',
+                    letterSpacing: '0.02em',
+                    marginBottom: 6,
+                  }}
+                >
+                  {root.name}
+                </h3>
+                <span
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: '0.7rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.15em',
+                    color: 'rgba(107, 68, 35, 0.55)',
+                    display: 'block',
+                    marginBottom: 14,
+                  }}
+                >
+                  {root.latin}
+                </span>
+                <p
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: '0.9rem',
+                    lineHeight: 1.65,
+                    color: 'rgba(107, 68, 35, 0.75)',
+                    maxWidth: 320,
+                  }}
+                >
+                  {root.benefit}
+                </p>
+              </div>
           ))}
         </div>
 
