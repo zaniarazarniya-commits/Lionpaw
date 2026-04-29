@@ -10,8 +10,6 @@ export default function HeroBackground({
   videoSrc,
 }: HeroBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const imgRef = useRef<HTMLImageElement>(null)
-  const rafRef = useRef<number>(0)
   const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
@@ -21,38 +19,6 @@ export default function HeroBackground({
       })
     }
   }, [videoSrc])
-
-  useEffect(() => {
-    const img = imgRef.current
-    if (!img) return
-
-    const duration = 30000
-    let start = performance.now()
-    let forward = true
-
-    const ease = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-
-    const loop = (now: number) => {
-      const elapsed = now - start
-      let t = (elapsed % duration) / duration
-      if (!forward) t = 1 - t
-      const e = ease(t)
-
-      const s = 1 + e * 0.3
-      const x = e * -6
-      const y = e * -3
-      img.style.transform = `scale(${s}) translate3d(${x}%, ${y}%, 0)`
-
-      if (elapsed >= duration) {
-        start = now
-        forward = !forward
-      }
-      rafRef.current = requestAnimationFrame(loop)
-    }
-
-    rafRef.current = requestAnimationFrame(loop)
-    return () => cancelAnimationFrame(rafRef.current)
-  }, [imageSrc])
 
   if (videoSrc && !videoError) {
     return (
@@ -81,17 +47,14 @@ export default function HeroBackground({
 
   return (
     <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
-      <img
-        ref={imgRef}
-        src={imageSrc}
-        alt=""
+      <div
+        className="hero-bg-animated"
         style={{
           position: 'absolute',
-          top: '-15%',
-          left: '-15%',
-          width: '130%',
-          height: '130%',
-          objectFit: 'cover',
+          inset: '-15%',
+          backgroundImage: `url(${imageSrc})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           willChange: 'transform',
         }}
       />
