@@ -79,7 +79,7 @@ export default function HeroBackground({
           backgroundImage: `url(${imageSrc})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          animation: 'heroKenBurns 40s ease-in-out infinite alternate',
+          animation: 'heroKenBurns 60s ease-in-out infinite alternate',
         }}
       />
       <div
@@ -93,10 +93,19 @@ export default function HeroBackground({
       <style>{`
         @keyframes heroKenBurns {
           0% {
-            transform: scale(1.05) translate(0%, 0%);
+            transform: scale(1.04) translate(0%, 0%);
+          }
+          25% {
+            transform: scale(1.06) translate(-0.5%, -0.3%);
+          }
+          50% {
+            transform: scale(1.08) translate(-1%, -0.5%);
+          }
+          75% {
+            transform: scale(1.10) translate(-1.5%, -0.3%);
           }
           100% {
-            transform: scale(1.15) translate(-1%, -1%);
+            transform: scale(1.12) translate(-2%, 0%);
           }
         }
       `}</style>
