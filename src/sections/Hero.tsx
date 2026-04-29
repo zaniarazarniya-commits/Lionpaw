@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { ChevronDown } from 'lucide-react'
 import gsap from 'gsap'
-import HeroCanvas from './HeroCanvas'
+import HeroBackground from './HeroBackground'
 import { useLang } from '../lib/i18n'
 
 export default function Hero() {
@@ -46,8 +46,8 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Canvas Animation Background */}
-      <HeroCanvas />
+      {/* Background: replace imageSrc with your Lysekil video or photo */}
+      <HeroBackground />
 
       {/* Vignette overlay — warm, not cold green */}
       <div
