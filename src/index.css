@@ -141,6 +141,16 @@
   }
 }
 
+/* Hero background Ken Burns drone animation */
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1.0) translate(0%, 0%);
+  }
+  100% {
+    transform: scale(1.25) translate(-4%, -2%);
+  }
+}
+
 /* Performance: compositor hints for animated elements */
 .will-change-transform {
   will-change: transform;

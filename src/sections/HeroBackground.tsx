@@ -91,16 +91,6 @@ export default function HeroBackground({
           mixBlendMode: 'multiply',
         }}
       />
-      <style>{`
-        @keyframes heroKenBurns {
-          0% {
-            transform: scale(1.0) translate(0%, 0%);
-          }
-          100% {
-            transform: scale(1.25) translate(-4%, -2%);
-          }
-        }
-      `}</style>
     </div>
   )
 }
