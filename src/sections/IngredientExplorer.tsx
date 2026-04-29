@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { MapPin } from 'lucide-react'
 import { useLang } from '../lib/i18n'
+import HerbSilhouette from '../components/HerbSilhouette'
 
 export default function IngredientExplorer() {
   const { t } = useLang()
@@ -12,6 +13,18 @@ export default function IngredientExplorer() {
   const nodesRef = useRef<HTMLDivElement>(null)
 
   const active = roots[activeIndex]
+
+  const herbKey = (idx: number): Parameters<typeof HerbSilhouette>[0]['herb'] => {
+    const map: Record<number, Parameters<typeof HerbSilhouette>[0]['herb']> = {
+      0: 'damiana',
+      1: 'calendula',
+      2: 'seamoss',
+      3: 'molundo',
+      4: 'fermented',
+      5: 'african',
+    }
+    return map[idx] ?? 'damiana'
+  }
 
   useEffect(() => {
     // Animate content change
@@ -120,8 +133,28 @@ export default function IngredientExplorer() {
         </span>
 
         {/* Active ingredient detail */}
-        <div ref={detailRef} style={{ textAlign: 'center', marginBottom: 64 }}>
-          <div ref={contentRef} key={activeIndex}>
+        <div ref={detailRef} style={{ textAlign: 'center', marginBottom: 64, position: 'relative' }}>
+          {/* Large silhouette behind */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -55%)',
+              width: 'clamp(280px, 40vw, 420px)',
+              height: 'clamp(280px, 40vw, 420px)',
+              opacity: 0.08,
+              color: '#c9a96e',
+              pointerEvents: 'none',
+              zIndex: 0,
+            }}
+          >
+            <HerbSilhouette
+              herb={herbKey(activeIndex)}
+              style={{ width: '100%', height: '100%' }}
+            />
+          </div>
+          <div ref={contentRef} key={activeIndex} style={{ position: 'relative', zIndex: 1 }}>
             {/* Number */}
             <span
               style={{
