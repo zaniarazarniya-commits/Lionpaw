@@ -75,11 +75,12 @@ export default function HeroBackground({
       <div
         style={{
           position: 'absolute',
-          inset: '-5%',
+          inset: '-10%',
           backgroundImage: `url(${imageSrc})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          animation: 'heroKenBurns 60s ease-in-out infinite alternate',
+          animation: 'heroKenBurns 25s ease-in-out infinite alternate',
+          willChange: 'transform',
         }}
       />
       <div
@@ -93,19 +94,10 @@ export default function HeroBackground({
       <style>{`
         @keyframes heroKenBurns {
           0% {
-            transform: scale(1.04) translate(0%, 0%);
-          }
-          25% {
-            transform: scale(1.06) translate(-0.5%, -0.3%);
-          }
-          50% {
-            transform: scale(1.08) translate(-1%, -0.5%);
-          }
-          75% {
-            transform: scale(1.10) translate(-1.5%, -0.3%);
+            transform: scale(1.0) translate(0%, 0%);
           }
           100% {
-            transform: scale(1.12) translate(-2%, 0%);
+            transform: scale(1.25) translate(-4%, -2%);
           }
         }
       `}</style>
