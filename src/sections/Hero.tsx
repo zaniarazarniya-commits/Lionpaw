@@ -46,8 +46,8 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Background: replace imageSrc with your Lysekil video or photo */}
-      <HeroBackground />
+      {/* Background: drone video */}
+      <HeroBackground videoSrc="/videos/hero-drone.mp4" />
 
       {/* Vignette overlay — warm, not cold green */}
       <div
