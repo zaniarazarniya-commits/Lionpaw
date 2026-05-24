@@ -9,6 +9,7 @@ import FromOurRange from './sections/FromOurRange'
 import Ingredients from './sections/Ingredients'
 import Newsletter from './sections/Newsletter'
 import Footer from './sections/Footer'
+import PoweredByBand from './components/PoweredByBand'
 
 const MemoizedNavigation = memo(Navigation)
 const MemoizedHero = memo(Hero)
@@ -36,6 +37,7 @@ export default function App() {
         <MemoizedNewsletter />
       </main>
       <MemoizedFooter />
+      <PoweredByBand />
     </div>
   )
 }
