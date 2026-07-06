@@ -14,11 +14,16 @@ export default function HeroBackground({
   const [videoReady, setVideoReady] = useState(false)
 
   useEffect(() => {
-    if (videoRef.current && videoSrc) {
-      videoRef.current.play().catch(() => {
-        setVideoError(true)
-      })
+    if (!videoSrc) return
+    // A rejected play() (autoplay policy, background tab) is not fatal —
+    // the image fallback stays visible and we retry when the tab is shown.
+    const tryPlay = () => videoRef.current?.play().catch(() => {})
+    tryPlay()
+    const onVisible = () => {
+      if (!document.hidden) tryPlay()
     }
+    document.addEventListener('visibilitychange', onVisible)
+    return () => document.removeEventListener('visibilitychange', onVisible)
   }, [videoSrc])
 
   const showVideo = videoSrc && !videoError
@@ -57,7 +62,7 @@ export default function HeroBackground({
             autoPlay muted loop playsInline
             preload="auto"
             poster={imageSrc}
-            onCanPlay={() => setVideoReady(true)}
+            onPlaying={() => setVideoReady(true)}
             onError={() => setVideoError(true)}
             style={{
               position: 'absolute', top: '50%', left: '50%',
