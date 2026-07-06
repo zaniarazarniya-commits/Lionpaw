@@ -106,6 +106,8 @@ export default function FromOurRange() {
                 <img
                   src={IMAGES[i]}
                   alt={product.name}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     aspectRatio: '4/3',

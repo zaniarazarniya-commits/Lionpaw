@@ -11,6 +11,7 @@ export default function HeroBackground({
 }: HeroBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [videoError, setVideoError] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
 
   useEffect(() => {
     if (videoRef.current && videoSrc) {
@@ -20,33 +21,11 @@ export default function HeroBackground({
     }
   }, [videoSrc])
 
-  if (videoSrc && !videoError) {
-    return (
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
-        <video
-          ref={videoRef}
-          autoPlay muted loop playsInline
-          onError={() => setVideoError(true)}
-          style={{
-            position: 'absolute', top: '50%', left: '50%',
-            minWidth: '100%', minHeight: '100%',
-            width: 'auto', height: 'auto',
-            transform: 'translate(-50%, -50%)', objectFit: 'cover',
-          }}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(60,40,15,0.15), rgba(92,58,30,0.25))',
-          mixBlendMode: 'multiply',
-        }} />
-      </div>
-    )
-  }
+  const showVideo = videoSrc && !videoError
 
   return (
     <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+      {/* Image shown immediately; stays as fallback until the video can play */}
       <div
         className="hero-bg-animated"
         style={{
@@ -70,6 +49,37 @@ export default function HeroBackground({
         background: 'linear-gradient(135deg, rgba(255,160,60,0.12) 0%, rgba(220,90,40,0.18) 50%, rgba(180,60,30,0.22) 100%)',
         mixBlendMode: 'soft-light',
       }} />
+
+      {showVideo && (
+        <>
+          <video
+            ref={videoRef}
+            autoPlay muted loop playsInline
+            preload="auto"
+            poster={imageSrc}
+            onCanPlay={() => setVideoReady(true)}
+            onError={() => setVideoError(true)}
+            style={{
+              position: 'absolute', top: '50%', left: '50%',
+              minWidth: '100%', minHeight: '100%',
+              width: 'auto', height: 'auto',
+              transform: 'translate(-50%, -50%)', objectFit: 'cover',
+              opacity: videoReady ? 1 : 0,
+              transition: 'opacity 0.8s ease',
+            }}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(60,40,15,0.15), rgba(92,58,30,0.25))',
+            mixBlendMode: 'multiply',
+            opacity: videoReady ? 1 : 0,
+            transition: 'opacity 0.8s ease',
+          }} />
+        </>
+      )}
+
       {/* Darken slightly for text contrast */}
       <div style={{
         position: 'absolute', inset: 0,

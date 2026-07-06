@@ -140,6 +140,11 @@ export const translations = {
       button: 'Prenumerera',
       thanks: 'Tack! Välkommen till cirkeln.',
     },
+    order: {
+      heading: 'Beställ via telefon',
+      body: 'Ring oss så hjälper vi dig med din beställning direkt.',
+      hint: 'Tryck på numret för att ringa',
+    },
     footer: {
       tagline: 'Roots & Herbs',
       description: 'Tillverkad i Lysekil på västkusten — där karibisk örtkunskap möter bohuslänskt hantverk och havets krafter.',
@@ -287,6 +292,11 @@ export const translations = {
       button: 'Subscribe',
       thanks: 'Thank you! Welcome to the circle.',
     },
+    order: {
+      heading: 'Order by phone',
+      body: 'Give us a call and we will help you with your order right away.',
+      hint: 'Tap the number to call',
+    },
     footer: {
       tagline: 'Roots & Herbs',
       description: 'Crafted in Lysekil on the Swedish west coast — where Caribbean herbal wisdom meets Bohuslän craftsmanship and the power of the sea.',
@@ -323,6 +333,7 @@ export interface Translations {
     featureCaption: string
   }
   newsletter: { heading: string; body: string; placeholder: string; button: string; thanks: string }
+  order: { heading: string; body: string; hint: string }
   footer: { tagline: string; description: string; follow: string; wholesale: string; copyright: string }
 }
 

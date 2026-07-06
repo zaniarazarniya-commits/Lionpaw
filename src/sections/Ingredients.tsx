@@ -220,6 +220,8 @@ export default function Ingredients() {
           <img
             src="/images/process-roots.jpg"
             alt={t.ingredients.featureCaption}
+            loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: 'auto',

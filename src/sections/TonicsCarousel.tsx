@@ -144,6 +144,8 @@ export default function TonicsCarousel() {
                 <img
                   src={tonic.image}
                   alt={tonic.name}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     aspectRatio: '4/3',

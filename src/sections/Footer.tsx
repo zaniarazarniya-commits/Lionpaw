@@ -181,7 +181,7 @@ export default function Footer() {
               </a>
             </div>
             <a
-              href="tel:+467351498244"
+              href="tel:+46735149824"
               className="transition-colors duration-300 hover:text-lion-gold"
               style={{
                 color: '#C9B896',
@@ -194,7 +194,7 @@ export default function Footer() {
               }}
             >
               <Phone size={14} />
-              +46 735 1498 244
+              +46 735 1498 24
             </a>
           </div>
         </div>

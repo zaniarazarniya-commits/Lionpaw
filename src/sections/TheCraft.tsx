@@ -113,6 +113,8 @@ export default function TheCraft() {
           <img
             src="/images/craft-herbs.jpg"
             alt=""
+            loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: 'auto',

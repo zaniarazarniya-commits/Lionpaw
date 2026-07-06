@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { Menu, X, Instagram, Phone } from 'lucide-react'
 import { useLang } from '../lib/i18n'
+import OrderModal from '../components/OrderModal'
 
 export default function Navigation() {
   const { t, lang, setLang } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [orderOpen, setOrderOpen] = useState(false)
   const navRef = useRef<HTMLElement>(null)
   const rafRef = useRef<number>(0)
   const lastScrollY = useRef(0)
@@ -120,7 +122,7 @@ export default function Navigation() {
             <Instagram size={18} />
           </a>
           <a
-            href="tel:+467351498244"
+            href="tel:+46735149824"
             className="transition-colors duration-300 hover:text-lion-gold"
             style={{ color: '#A3B899' }}
           >
@@ -156,7 +158,7 @@ export default function Navigation() {
           </button>
 
           <button
-            onClick={() => handleNav('#range')}
+            onClick={() => setOrderOpen(true)}
             className="transition-all duration-300 hover:scale-105"
             style={{
               background: '#C9A227',
@@ -202,11 +204,29 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={() => { setMobileOpen(false); setOrderOpen(true) }}
+            style={{
+              background: '#C9A227',
+              color: '#4A5D23',
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              letterSpacing: '0.08em',
+              padding: '10px 20px',
+              borderRadius: 20,
+              border: 'none',
+              cursor: 'pointer',
+              alignSelf: 'flex-start',
+            }}
+          >
+            {t.nav.shop}
+          </button>
           <div className="flex items-center gap-4 pt-2">
             <a href="https://www.instagram.com/lion_paw.se/" target="_blank" rel="noopener noreferrer" style={{ color: '#A3B899' }}>
               <Instagram size={20} />
             </a>
-            <a href="tel:+467351498244" style={{ color: '#A3B899' }}>
+            <a href="tel:+46735149824" style={{ color: '#A3B899' }}>
               <Phone size={20} />
             </a>
             <button
@@ -227,6 +247,8 @@ export default function Navigation() {
           </div>
         </div>
       )}
+
+      <OrderModal open={orderOpen} onClose={() => setOrderOpen(false)} />
     </nav>
   )
 }
