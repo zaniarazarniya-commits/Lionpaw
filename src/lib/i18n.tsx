@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react'
 import { getTranslation, type Lang, type Translations } from './translations'
 
 const STORAGE_KEY = 'lionpaw-lang'
@@ -14,8 +14,12 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem(STORAGE_KEY) as Lang | null
-      if (stored === 'sv' || stored === 'en') return stored
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY) as Lang | null
+        if (stored === 'sv' || stored === 'en') return stored
+      } catch {
+        // storage blocked (private mode): fall back to Swedish
+      }
     }
     return 'sv'
   })
@@ -23,9 +27,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLang = useCallback((newLang: Lang) => {
     setLangState(newLang)
     if (typeof window !== 'undefined') {
-      localStorage.setItem(STORAGE_KEY, newLang)
+      try {
+        localStorage.setItem(STORAGE_KEY, newLang)
+      } catch {
+        // storage blocked: language still switches for this visit
+      }
     }
   }, [])
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
 
   const t = getTranslation(lang)
 

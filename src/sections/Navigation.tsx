@@ -14,7 +14,7 @@ export default function Navigation() {
 
   const NAV_LINKS = [
     { label: t.nav.story, href: '#welcome' },
-    { label: t.nav.tonics, href: '#tonics' },
+    { label: t.nav.tonics, href: '#range' },
     { label: t.nav.ingredients, href: '#ingredients' },
     { label: t.nav.contact, href: '#footer' },
   ]
@@ -116,6 +116,7 @@ export default function Navigation() {
             href="https://www.instagram.com/lion_paw.se/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram"
             className="transition-colors duration-300 hover:text-lion-gold"
             style={{ color: '#A3B899' }}
           >
@@ -123,6 +124,7 @@ export default function Navigation() {
           </a>
           <a
             href="tel:+46735149824"
+            aria-label={t.order.heading}
             className="transition-colors duration-300 hover:text-lion-gold"
             style={{ color: '#A3B899' }}
           >
@@ -182,6 +184,8 @@ export default function Navigation() {
         <button
           className="md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
+          aria-expanded={mobileOpen}
           style={{ color: '#F5F1E6', background: 'none', border: 'none' }}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -223,10 +227,10 @@ export default function Navigation() {
             {t.nav.shop}
           </button>
           <div className="flex items-center gap-4 pt-2">
-            <a href="https://www.instagram.com/lion_paw.se/" target="_blank" rel="noopener noreferrer" style={{ color: '#A3B899' }}>
+            <a href="https://www.instagram.com/lion_paw.se/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: '#A3B899' }}>
               <Instagram size={20} />
             </a>
-            <a href="tel:+46735149824" style={{ color: '#A3B899' }}>
+            <a href="tel:+46735149824" aria-label={t.order.heading} style={{ color: '#A3B899' }}>
               <Phone size={20} />
             </a>
             <button

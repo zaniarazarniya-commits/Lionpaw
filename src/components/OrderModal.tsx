@@ -8,7 +8,7 @@ interface OrderModalProps {
 }
 
 const PHONE_TEL = '+46735149824'
-const PHONE_DISPLAY = '+46 735 1498 24'
+const PHONE_DISPLAY = '+46 73 514 98 24'
 
 export default function OrderModal({ open, onClose }: OrderModalProps) {
   const { t } = useLang()

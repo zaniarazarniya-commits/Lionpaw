@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Instagram, Facebook, Phone } from 'lucide-react'
+import { Instagram, Phone } from 'lucide-react'
 import { useLang } from '../lib/i18n'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -30,7 +30,7 @@ export default function Footer() {
 
   const FOOTER_NAV = [
     { label: t.nav.story, href: '#welcome' },
-    { label: t.nav.tonics, href: '#tonics' },
+    { label: t.nav.tonics, href: '#range' },
     { label: t.nav.ingredients, href: '#ingredients' },
     { label: t.footer.wholesale, href: '#footer' },
     { label: t.nav.contact, href: '#footer' },
@@ -167,17 +167,11 @@ export default function Footer() {
                 href="https://www.instagram.com/lion_paw.se/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="transition-colors duration-300 hover:text-lion-gold"
                 style={{ color: '#A3B899' }}
               >
                 <Instagram size={24} />
-              </a>
-              <a
-                href="#"
-                className="transition-colors duration-300 hover:text-lion-gold"
-                style={{ color: '#A3B899' }}
-              >
-                <Facebook size={24} />
               </a>
             </div>
             <a
@@ -194,7 +188,7 @@ export default function Footer() {
               }}
             >
               <Phone size={14} />
-              +46 735 1498 24
+              +46 73 514 98 24
             </a>
           </div>
         </div>
