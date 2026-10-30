@@ -82,7 +82,16 @@ export default function FromOurRange() {
             >
               <div
                 className="shimmer-hover"
+                role="button"
+                tabIndex={0}
+                aria-label={product.name}
                 onClick={() => openLightbox(IMAGES[i], product.name)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    openLightbox(IMAGES[i], product.name)
+                  }
+                }}
                 style={{
                   borderRadius: 8,
                   overflow: 'hidden',

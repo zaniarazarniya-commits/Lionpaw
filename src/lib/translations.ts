@@ -149,8 +149,8 @@ export const translations = {
       tagline: 'Roots & Herbs',
       description: 'Tillverkad i Lysekil på västkusten — där karibisk örtkunskap möter bohuslänskt hantverk och havets krafter.',
       follow: 'FÖLJ OSS',
-      wholesale: 'Handla',
-      copyright: '© 2025 Lion Paw Roots & Herbs. Alla rättigheter förbehållna.',
+      wholesale: 'Återförsäljare',
+      copyright: `© ${new Date().getFullYear()} Lion Paw Roots & Herbs. Alla rättigheter förbehållna.`,
     },
   },
   en: {
@@ -302,7 +302,7 @@ export const translations = {
       description: 'Crafted in Lysekil on the Swedish west coast — where Caribbean herbal wisdom meets Bohuslän craftsmanship and the power of the sea.',
       follow: 'FOLLOW THE PAW',
       wholesale: 'Wholesale',
-      copyright: '\u00A9 2025 Lion Paw Roots & Herbs. All rights reserved.',
+      copyright: `\u00A9 ${new Date().getFullYear()} Lion Paw Roots & Herbs. All rights reserved.`,
     },
   },
 }
